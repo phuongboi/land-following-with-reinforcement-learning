@@ -16,14 +16,12 @@ class Network(nn.Module):
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(input_shape, 256),
             nn.ReLU(),
+            nn.Linear(256, num_actions)
         )
 
     def forward(self, x):
-
         x = self.linear_relu_stack(x)
-
         return x
-
 
 class DQN:
     def __init__(self, model_path, env, lr, batch_size, gamma, eps_decay, eps_start, eps_end, initial_memory, memory_size):
