@@ -1,7 +1,7 @@
 ### This repository is my re-implementation some experiments of the Master's thesis [Training Neural Networks for Event-Based End-to-End Robot Control](https://github.com/clamesc/Training-Neural-Networks-for-Event-Based-End-to-End-Robot-Control)
 #### [09/10/2023] Training with Q-learning
 * Using CoppeliaSim(V-REP), ROS, Q-learning
-* Simple implementation with pytorch
+* Simple and friendly implementation with pytorch
 * Modify the ROS interface with new V-REP version
 * Run `python train_qnetwork.py`
 ##### Training result
