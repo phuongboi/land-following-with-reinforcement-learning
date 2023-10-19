@@ -118,7 +118,6 @@ class DQN:
         losses = []
         rewards_list = []
         for episode in range(num_episodes):
-            print("episode", episode)
             state = env.reset()
             reward_for_episode = 0
             #num_steps = 1000
@@ -143,8 +142,11 @@ class DQN:
 
                 if steps_done % 4000 == 0:
                     plot_stats(steps_done, rewards_list, losses, steps_done)
+                if len(self.replay_buffer) == self.initial_memory:
+                    print("Start learning from buffer")
                 if terminal:
                     rewards_list.append(reward_for_episode)
+                    print("Episode: {} done, Reward: {}".format(episode, reward_for_episode))
                     break
 
 
