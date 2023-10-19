@@ -5,7 +5,7 @@
 * Modify the ROS interface with new V-REP version
 * Run `python train_qnetwork.py`
 ##### Training result
-![alt text](/home/samvdh/2023_RL/code/land-following-with-reinforement-learning/figures/recording_2023_10_19-06_46-39.gif)  
+![alt text](https://github.com/phuongboi/land-following-with-reinforcement-learning/blob/main/figures/recording_2023_10_19-06_46-39.gif)  
 
 
 ### Reference
