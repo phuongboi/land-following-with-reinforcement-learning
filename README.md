@@ -9,9 +9,9 @@
 ![alt text](https://github.com/phuongboi/land-following-with-reinforcement-learning/blob/main/figures/recording_2023_10_19-06_46-39.gif)  
 
 ### Requirements
-CoppeliaSim v4.5.1 linux
-ROS Noetic, rospy
-Pytorch
+* CoppeliaSim v4.5.1 linux
+* ROS Noetic, rospy
+* Pytorch
 
 ### Setup
 * Launch `roscore` in one terminal before launch Coppeliasim in another terminal to make sure that CoppeliaSim can load ROS plugin properly
