@@ -141,7 +141,7 @@ class DQN:
                     loss = self.train_with_relay_buffer()
                     losses.append(loss.item())
 
-                if steps_done % 10000 == 0:
+                if steps_done % 4000 == 0:
                     plot_stats(steps_done, rewards_list, losses, steps_done)
                 if terminal:
                     rewards_list.append(reward_for_episode)
@@ -149,10 +149,10 @@ class DQN:
 
 
             # Check for breaking condition
-            if (episode+1) % 800 == 0:
-                path = os.path.join(self.model_path, f"{env.spec.id}_episode_{episode+1}.pth")
-                print(f"Saving weights at Episode {episode+1} ...")
-                torch.save(self.model.state_dict(), path)
+            # if (episode+1) % 800 == 0:
+            #     path = os.path.join(self.model_path, f"{env.spec.id}_episode_{episode+1}.pth")
+            #     print(f"Saving weights at Episode {episode+1} ...")
+            #     torch.save(self.model.state_dict(), path)
         env.close()
 
 
@@ -178,13 +178,13 @@ if __name__ == "__main__":
                              params.resize_factor, params.crop)
 
     # setting up params
-    lr = 0.00001
+    lr = 0.0001
     batch_size = 32
     eps_decay = 30000
     eps_start = 1
-    eps_end = 0.01
+    eps_end = 0.1
     initial_memory = 1000
-    memory_size = 20 * initial_memory
+    memory_size = 5000#20 * initial_memory
     gamma = 0.99
     num_episodes = 1000
     model_path = "weights/"
