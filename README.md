@@ -5,8 +5,11 @@
 * Simple and friendly implementation with pytorch
 * Modify the ROS interface with new V-REP version
 
-##### Training result
+##### CoppeliaSim simulation
 ![alt text](https://github.com/phuongboi/land-following-with-reinforcement-learning/blob/main/figures/recording_2023_10_19-06_46-39.gif)  
+
+##### Training result
+![alt text](https://github.com/phuongboi/land-following-with-reinforcement-learning/blob/main/figures/fig_40000.png)  
 
 ### Requirements
 * CoppeliaSim v4.5.1 linux

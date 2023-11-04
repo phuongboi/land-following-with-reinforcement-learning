@@ -121,11 +121,13 @@ class DQN:
             #num_steps = 1000
             #state = state[0]
             #for step in range(num_steps):
+            num_step_per_eps = 0
             while True:
                 epsilon = self.eps_end + (self.eps_start - self.eps_end) * np.exp(- steps_done / self.eps_decay)
                 #print("curent eps", epsilon)
                 received_action = self.agent_policy(state, epsilon)
                 steps_done += 1
+                num_step_per_eps += 1
                 # print("received_action:", received_action)
                 next_state, reward, terminal, _, _ = env.step(received_action)
 
@@ -140,11 +142,16 @@ class DQN:
 
                 if steps_done % 4000 == 0:
                     plot_stats(steps_done, rewards_list, losses, steps_done)
+                    path = os.path.join(self.model_path, f"steps_{steps_done+1}.pth")
+                    torch.save(self.model.state_dict(), path)
                 if len(self.replay_buffer) == self.initial_memory:
                     print("Start learning from buffer")
                 if terminal:
                     rewards_list.append(reward_for_episode)
                     print("Episode: {} done, Reward: {}".format(episode, reward_for_episode))
+                    break
+                if num_step_per_eps > 250:
+                    print("Episode: {} done by reaching max length, Reward: {}".format(episode, reward_for_episode))
                     break
 
 
